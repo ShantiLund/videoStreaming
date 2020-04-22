@@ -4,7 +4,8 @@ import {AngularFireModule} from 'angularfire2';
 import {AngularFireStorageModule} from 'angularfire2/storage';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import {AgmCoreModule} from '@agm/core';
+import { AgmDirectionModule } from 'agm-direction'; 
 @NgModule({
   declarations: [
     AppComponent
@@ -15,12 +16,18 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
 
     AngularFireModule.initializeApp({
-      apiKey: "AIzaSyDLXmfWdLxa48jgB5PV9Q0t0IwUNOs0dWc",
-      authDomain: "videostreaming-5c1bc.firebaseapp.com",
-      projectId: "videostreaming-5c1bc",
-      storageBucket: "videostreaming-5c1bc.appspot.com"
+      apiKey:  "AIzaSyB7hA3gZ7mxroXul7NNLZ_w_r5wdj7sQJg",
+      authDomain: "practice-b992b.firebaseapp.com",
+      projectId: "practice-b992b",
+      storageBucket: "practice-b992b.appspot.com"
+      
     }),
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCq30MeJ0GZZnHyLD9cEe_XJolcvmkjHQ8',
+      libraries: ['places']
+    }),
+    AgmDirectionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

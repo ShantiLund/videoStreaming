@@ -15,10 +15,54 @@
        </div>
 
        <div>
-        <div *ngIf="downloadURL |async; let downloadVideoLink" class="alert-alert-info" role="alert">
-          File uploaded: <a [href]="downloadVideoLink">{{ downloadURL | async }}</a>
-        </div>
+        
       </div>
      
   </div>
-</div>
+  <div>
+  <button onclick="getURL()">Show</button>
+  <div *ngIf="downloadURL | async; let downloadSrc" class="alert alert-info" role="alert">
+    <video width="400" controls>
+      <source src="{{downloadSrc}}" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+    </div>
+  </div>
+
+  <div>
+    <h1>Angular Google Maps with Places Search Example</h1>
+ 
+    <div class="form-group">
+      <label>Select Pickup location</label>
+      <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="Select Pickup Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
+      
+    </div>
+   </div>
+    
+     
+    </div>
+   <div>
+    <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+      <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
+        (dragEnd)="markerDragEnd($event)"></agm-marker>
+
+    </agm-map>
+   
+    <h5>Address: {{address}}</h5>
+    <div>Latitude: {{latitude}}</div>
+    <div>Longitude: {{longitude}}</div>
+   </div>
+    
+
+   <div>
+    <h1> Show route</h1>
+    <agm-map [latitude]="latitude" [longitude]="longitude">
+  <agm-direction [origin]="origin" [destination]="destination"></agm-direction>
+  
+</agm-map>
+  </div>
+  <br> <br>
+  <div></div>
+  </div>
+
+  
